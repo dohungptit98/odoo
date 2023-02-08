@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <menuitem id="student_information_menu"
+                  name="Student"
+                  parent="school.school_menu_root"
+                  sequence="2"/>
+
+        <menuitem id="student_submenu_information_menu"
+                  name="Student"
+                  parent="student_information_menu"
+                  action="action_student_information"
+                  sequence="2"/>
+
+         <record id="student_information_list_view" model="ir.ui.view">
+            <field name="name">Student Information List</field>
+            <field name="model">student.information</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách học sinh">
+                    <field name="class_id" optional="show" />
+                    <field name="name" optional="show"/>
+                    <field name="birthday" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_information_form_view" model="ir.ui.view">
+            <field name="name">Student Information Form</field>
+            <field name="model">student.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="class_id"/>
+                            <field name="name"/>
+                            <field name="birthday"/>
+                        </group>
+                        <group>
+                            <field name="subject_list" widget="many2many_checkboxes" string="Các môn học đăng ký" help="Đây là danh sách các môn học của học sinh"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="action_student_information" model="ir.actions.act_window">
+            <field name="name">Student Information</field>
+            <field name="res_model">student.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new student for more!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
