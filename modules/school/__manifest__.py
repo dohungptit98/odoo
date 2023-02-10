@@ -13,6 +13,7 @@
         'views/class_information.xml',
         'views/student_information.xml',
         'views/subject_information.xml',
+        'views/library_information.xml',
         'security/ir.model.access.csv',
     ],
     'demo': [],

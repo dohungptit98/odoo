@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 #Moi 1 model la 1 bang trong csdl, ten model cung la ten bang
 
@@ -11,7 +12,7 @@ class SchoolInformation(models.Model):
     email = fields.Text(string="Email")
     address = fields.Text(string="Địa chỉ")
 
-    phoneNu = fields.Char(string="Số điện thoại")
+    phone_number = fields.Char(string="Số điện thoại")
     hasOnlineClass = fields.Boolean(string="Có lớp online không?")
     rank = fields.Integer(string="Xếp hạng")
     establishDay = fields.Date(string="Ngày thành lập")
@@ -20,3 +21,20 @@ class SchoolInformation(models.Model):
 
     class_list = fields.One2many('class.information', "school_id", string="Danh sách lớp học")
 
+    tuition = fields.Float(compute="_compute_tuition", string="Học phí 1 kì")
+
+    @api.depends("type")
+    def _compute_tuition(self):
+        for re in self:
+            if re.type == "private":
+                re.tuition = 2000
+            elif re.type == "public":
+                re.tuition = 500
+            else:
+                re.tuition =0
+
+    def write(self, values):
+        rtn = super(SchoolInformation, self).write(values)
+        if not self.phone_number:
+            raise UserError("Bạn cần nhập số điện thoại")
+        return rtn

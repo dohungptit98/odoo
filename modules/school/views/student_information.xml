@@ -18,9 +18,11 @@
             <field name="model">student.information</field>
             <field name="arch" type="xml">
                 <tree string="Danh sách học sinh">
+                    <field name="school_id" optional="show"/>
                     <field name="class_id" optional="show" />
                     <field name="name" optional="show"/>
                     <field name="birthday" optional="show"/>
+                    <field name="tuition" optional="show" sum="Total"/>
                 </tree>
             </field>
         </record>
@@ -32,12 +34,20 @@
                 <form>
                     <sheet>
                         <group>
+                            <field name="school_id"/>
                             <field name="class_id"/>
                             <field name="name"/>
                             <field name="birthday"/>
                         </group>
                         <group>
                             <field name="subject_list" widget="many2many_checkboxes" string="Các môn học đăng ký" help="Đây là danh sách các môn học của học sinh"/>
+                        </group>
+                        <group>
+                            <field name="library_list" widget="many2many_checkboxes" string="Các sách đã mượn" help="Đây là danh mục sách mà học sinh mượn"/>
+                        </group>
+                        <group>
+                            <field name="tuition"/>
+                            <field name="currency_id"/>
                         </group>
                     </sheet>
                 </form>

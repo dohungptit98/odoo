@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <menuitem id="class_information_menu"
-                  name="Class Information"
+                  name="Class"
                   parent="school.school_menu_root"
                   action="action_class_information"
                   sequence="2"/>
@@ -16,6 +16,7 @@
                     <field name="name" optional="show"/>
                     <field name="mainTeacher" optional="show"/>
                     <field name="grade" optional="show"/>
+                    <field name="address" optional="show"/>
                 </tree>
             </field>
         </record>

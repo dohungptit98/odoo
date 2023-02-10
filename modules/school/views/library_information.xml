@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="library_information_menu"
+                  name="Library"
+                  parent="school.school_menu_root"
+                  action="action_library_information"
+                  sequence="2"/>
+
+        <record id="library_information_list_view" model="ir.ui.view">
+            <field name="name">Library Information List</field>
+            <field name="model">library.information</field>
+            <field name="arch" type="xml">
+                <tree string="Danh mục sách">
+                    <field name="name" optional="show"/>
+                    <field name="number_page" optional="show"/>
+                    <field name="author" optional="show"/>
+                    <field name="category" optional="show"/>
+                    <field name="status" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="library_information_form_view" model="ir.ui.view">
+            <field name="name">Library Information Form</field>
+            <field name="model">library.information</field>
+            <field name="arch" type="xml">
+                <tree string="Danh mục sách">
+                    <field name="name"/>
+                    <field name="number_page"/>
+                    <field name="author"/>
+                    <field name="category"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_library_information" model="ir.actions.act_window">
+            <field name="name">Library Information</field>
+            <field name="res_model">library.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new library for more!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

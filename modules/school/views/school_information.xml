@@ -21,6 +21,7 @@
                     <field name="type" optional="show"/>
                     <field name="email" optional="show"/>
                     <field name="address" optional="show"/>
+                    <field name="phone_number" optional="show"/>
                     <field name="hasOnlineClass" optional="show"/>
                 </tree>
             </field>
@@ -37,6 +38,7 @@
                             <field name="type"/>
                             <field name="email"/>
                             <field name="address"/>
+                            <field name="phone_number"/>
                         </group>
                         <group>
                             <field name="hasOnlineClass"/>
@@ -56,6 +58,9 @@
                                     <field name="grade" optional="show"/>
                                 </form>
                             </field>
+                        </group>
+                        <group>
+                            <field name="tuition"/>
                         </group>
                     </sheet>
                 </form>
