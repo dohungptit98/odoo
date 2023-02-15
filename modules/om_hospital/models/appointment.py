@@ -10,7 +10,7 @@ class HospitalAppointment(models.Model):
     gender = fields.Selection(related='patient_id.gender')
     appointment_time = fields.Datetime(string="Appointment Time", default=fields.Datetime.now)
     booking_date = fields.Date(string="Booking Date", default=fields.Date.context_today)
-    ref = fields.Char(string="Reference")
+    ref = fields.Char(string="Reference", help="Reference from patient record")
     prescription = fields.Html(string="Prescription")
     priority = fields.Selection([
         ('0', 'Normal'),
@@ -26,3 +26,13 @@ class HospitalAppointment(models.Model):
     @api.onchange('patient_id')
     def onchange_patient_id(self):
         self.ref = self.patient_id.ref
+
+    def action_test(self):
+        print("Button Clicked !!")
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Click Successfull',
+                'type': 'rainbow_man',
+            }
+        }

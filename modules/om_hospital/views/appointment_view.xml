@@ -8,6 +8,12 @@
                 <field name="patient_id"/>
                 <field name="appointment_time"/>
                 <field name="booking_date"/>
+                <field name="state"
+                       decoration-success="state == 'done'"
+                       decoration-info="state == 'draft'"
+                       decoration-danger="state == 'cancel'"
+                       decoration-warning="state == 'in_consultation'"
+                       widget="badge"/>
             </tree>
         </field>
     </record>
@@ -32,10 +38,18 @@
                             <field name="patient_id"/>
                             <field name="ref"/>
                             <field name="gender"/>
-                            <field name="booking_date"/>
+                            <field name="booking_date" help="Date of booking"/>
                         </group>
                         <group>
                             <field name="appointment_time"/>
+                            <button name="action_test" string="Object Button" type="object"
+                                    help="A message will be printed in the log"
+                                    confirm="Are you sure to execute python code?"
+                                    class="oe_highlight"/>
+                            <button name="%(om_hospital.action_hospital_patient)d" string="Action Button"
+                                    help="On Clicking this button"
+                                    confirm="Are you sure to open the patient action?"
+                                    type="action" class="oe_highlight"/>
                         </group>
                     </group>
 
