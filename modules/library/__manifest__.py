@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Hospital Management',
+    'name': 'Library Management',
     'version': '1.0.0',
-    'category': 'Hospital',
+    'category': 'Library',
     'author': 'HungDo',
     'sequence': -100,
-    'summary': 'Hospital management system',
+    'summary': 'Library management system',
     'description': """
-        Hospital management system
+        Library management system
     """,
-    'depends': ['mail', 'product'],
+    'depends': [],
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
-        'views/patient_view.xml',
-        'views/female_patient_view.xml',
-        'views/appointment_view.xml',
+        'views/student_view.xml',
+        'views/book_view.xml',
+        'views/voucher_view.xml',
     ],
     'demo': [],
     'installable': True,

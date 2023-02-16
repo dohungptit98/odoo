@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.library.student,access_library_student,library.model_library_student,base.group_user,1,1,1,1
+access.library.book,access_library_book,library.model_library_book,base.group_user,1,1,1,1
+access.library.voucher,access_library_voucher,library.model_library_voucher,base.group_user,1,1,1,1

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_library_root"
+              name="Library"
+              sequence="0"/>
+    <menuitem id="menu_student_master"
+              name="Student Details"
+              parent="menu_library_root"
+              sequence="0"/>
+    <menuitem id="menu_book_master"
+              name="Books"
+              parent="menu_library_root"
+              sequence="20"/>
+    <menuitem id="menu_voucher_master"
+              name="Vouchers"
+              parent="menu_library_root"
+              sequence="40"/>
+</odoo>
