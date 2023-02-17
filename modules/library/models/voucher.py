@@ -2,6 +2,7 @@ from odoo import api, fields, models
 
 class LibraryVoucher(models.Model):
     _name = "library.voucher"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Library Voucher"
 
     student_id = fields.Many2one('library.student', string="Student")
