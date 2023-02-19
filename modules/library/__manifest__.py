@@ -13,6 +13,7 @@
     'depends': ['mail'],
     'data': [
         'security/ir.model.access.csv',
+        'security/library_security.xml',
         'views/menu.xml',
         'views/student_view.xml',
         'views/book_view.xml',

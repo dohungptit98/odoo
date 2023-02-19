@@ -10,6 +10,8 @@ class LibraryVoucher(models.Model):
     borrow_date = fields.Date(string="Borrow Date", default=fields.Date.context_today)
     pay_date = fields.Date(string="Pay Date", default=fields.Date.context_today)
     book_id = fields.Many2one('library.book', string="Book")
+    user_id = fields.Many2one('res.users', string='User', track_visibility='onchange', readonly=True,
+                              states={'draft': [('readonly', False)]}, default=lambda self: self.env.user)
 
     state = fields.Selection([
         ('draft', 'Draft'),

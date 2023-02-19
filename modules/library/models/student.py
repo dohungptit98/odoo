@@ -9,3 +9,4 @@ class LibraryStudent(models.Model):
     date_of_birth = fields.Date(string="Date Of Birth")
     grade = fields.Char(string="Grade")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", tracking=True, default='female')
+    image = fields.Image(string="Image")
